@@ -1,26 +1,109 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-display: var(--font-syne), sans-serif;
+  --font-sans: var(--font-jakarta), sans-serif;
+  --font-serif: var(--font-playfair), serif;
+
+  --color-crimson-deep: #C8232C;
+  --color-crimson-bright: #E03131;
+  --color-gallery-white: #F8F9FA;
+  --color-editorial-dark: #121212;
+  --color-editorial-charcoal: #1A1A1A;
+  --color-mustard-gold: #C4A459;
+  --color-cool-slate: #5C6470;
+  --color-charcoal-gold: #D4AF37;
+  --color-deep-olive: #8A8438;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html.lenis,
+html.lenis body {
+  height: auto;
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+/* 3D Perspective & Gallery Shadows */
+.perspective-1200 {
+  perspective: 1200px;
+}
+
+.perspective-2000 {
+  perspective: 2000px;
+}
+
+.preserve-3d {
+  transform-style: preserve-3d;
+}
+
+.paper-cut-shadow {
+  filter: drop-shadow(0 20px 35px rgba(0, 0, 0, 0.35));
+}
+
+.paper-cut-shadow-soft {
+  filter: drop-shadow(0 12px 24px rgba(0, 0, 0, 0.22));
+}
+
+.gallery-frame-shadow {
+  box-shadow:
+    0 30px 60px -15px rgba(0, 0, 0, 0.5),
+    0 18px 36px -18px rgba(0, 0, 0, 0.4),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.14);
+}
+
+.metallic-wordmark {
+  background: linear-gradient(180deg,
+      #ffffff 0%,
+      #e5d3a3 32%,
+      #d4af37 52%,
+      #8c6d23 78%,
+      #f7e8b9 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.metallic-reflection {
+  background: linear-gradient(180deg,
+      rgba(212, 175, 55, 0.25) 0%,
+      rgba(212, 175, 55, 0.04) 55%,
+      rgba(14, 14, 14, 0) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  transform: scaleY(-1);
+}
+
+/* Subtle architectural grid texture */
+.gallery-noise {
+  background-image: radial-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 0);
+  background-size: 24px 24px;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #121212;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #333333;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #C8232C;
 }
